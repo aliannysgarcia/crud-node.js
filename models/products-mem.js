@@ -1,0 +1,61 @@
+const products = [
+    { id: 1, name: "Apple", cost: 1.5, category: "Fruits", stock: 100, description: "Fresh and delicious apples."},
+    { id: 2, name: "Bread", cost: 2.0, category: "Bakery", stock: 50, description: "Homemade bread, perfect for sandwiches."},
+    { id: 3, name: "Salmon", cost: 10.99, category: "Seafood", stock: 20, description: "Fresh salmon fillet, rich in omega-3."},
+    { id: 4, name: "Spinach", cost: 0.99, category: "Vegetables", stock: 75, description: "Organic spinach, packed with nutrients."},
+    { id: 5, name: "Chicken Breast", cost: 5.99, category: "Meat", stock: 30, description: "Lean and tender chicken breast."},
+    { id: 6, name: "Yogurt", cost: 1.25, category: "Dairy", stock: 60, description: "Creamy and delicious yogurt."},
+    { id: 7, name: "Pasta", cost: 2.49, category: "Pantry", stock: 40, description: "Classic pasta for your favorite recipes."},
+    { id: 8, name: "Banana", cost: 0.75, category: "Fruits", stock: 80, description: "Sweet and nutritious bananas."},
+    { id: 9, name: "Tomato", cost: 0.99, category: "Vegetables", stock: 70, description: "Juicy and ripe tomatoes."},
+    { id: 10, name: "Cheese", cost: 3.99, category: "Dairy", stock: 25, description: "Gourmet cheese selection."},
+    { id: 11, name: "Salad Mix", cost: 2.75, category: "Produce", stock: 45, description: "Fresh and crisp salad mix."},
+    { id: 12, name: "Ground Beef", cost: 7.49, category: "Meat", stock: 35, description: "Premium quality ground beef."}
+    ];
+    
+let lastPoductId = 12;
+const getNextProductId = () => ++lastPoductId;
+
+//  ---- create ----
+const createProduct = product => {
+    product.id = getNextProductId();
+    products.push(product);
+    return product;
+};
+
+
+//  ---- read ----
+const readProducts = () => products;
+
+const readProduct = id => products.find(prod => prod.id === id) || {};
+
+
+//  ---- update ----
+const updateProduct = (id, product) => {
+    let index = products.findIndex(prod => prod.id === id)
+    if (index ===  -1) { //si no se encontro
+        return {};
+    }
+    products[index] = product;
+    return product;
+};
+
+
+//  ---- delete ----
+const deleteProduct = id => {
+    let index = products.findIndex(prod => prod.id === id)
+    if (index ===  -1) { //si no se encontro
+        return {};
+    }
+    const removeProduct = products.splice(index, 1)[0];
+    return removeProduct;
+};
+
+
+export default {
+    createProduct,
+    readProducts,
+    readProduct,
+    updateProduct,
+    deleteProduct
+}
