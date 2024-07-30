@@ -1,5 +1,6 @@
 // import model from '../models/products-mem.js'
-import model from '../models/products-fs.js'
+// import model from '../models/products-fs.js'
+import model from '../models/products-mongodb.js'
 
 //  ---- API Get all ----
 const getProducts = async () => await model.readProducts();
