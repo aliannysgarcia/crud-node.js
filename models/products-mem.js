@@ -14,7 +14,7 @@ const products = [
     ];
     
 let lastPoductId = 12;
-const getNextProductId = () => ++lastPoductId;
+const getNextProductId = () => String(++lastPoductId);
 
 //  ---- create ----
 const createProduct = product => {

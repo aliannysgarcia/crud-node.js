@@ -22,7 +22,7 @@ const saveProductsToFile = async products => {
 }
 
 const getNextProductId = products => {
-    const nextId = products[products.length - 1].id + 1;
+    const nextId = String(Number(products[products.length - 1].id) + 1);
     return nextId;
 }
 
