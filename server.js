@@ -1,7 +1,11 @@
 import express from 'express';
 import router from './routers/products.js';
+import config from './config.js';
+import DB from './models/products-mongodb.js'
 
-const PORT = 8080;
+DB.connectDB();
+
+const PORT = config.PORT;
 const app = express()
 
 app.use(express.json()) // se habilita el middleware para recibir datos en formato JSON en las solicitudes POST
