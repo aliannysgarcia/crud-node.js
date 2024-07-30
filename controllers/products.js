@@ -7,7 +7,7 @@ const getProducts = async (req, res) => {
 };
 
 const getProduct = async (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     const product = await api.getProduct(id);
 
     res.json(product);
@@ -25,7 +25,7 @@ const postProduct = async (req, res) => {
 
 // ----- PUT Controller -----
 const putProduct = async (req, res) => {
-    const id = Number(req.params.id) // convierte el valor id ingresado a traves de la solicitud HTTP a un número y lo asigna a la variable iç
+    const id = req.params.id // convierte el valor id ingresado a traves de la solicitud HTTP a un número y lo asigna a la variable iç
     const {name, cost, category, stock, description} = req.body;
     const product = {id, name, cost, category, stock, description};
     
@@ -35,7 +35,7 @@ const putProduct = async (req, res) => {
 
 // ----- DELETE Controller -----
 const deleteProduct = async (req, res) => {
-    const id = Number(req.params.id);
+    const id = req.params.id;
 
     const removeProduct = await api.deleteProduct(id);
 
